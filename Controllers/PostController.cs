@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using ThreePointSix.Services;
+using ThreePointSix.Models;
 
 namespace ThreePointSix.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class PostController : ControllerBase
     {
-        // GET api/values
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-            return new string[] { "value1", "value2" };
+        private readonly Service _Service;
+
+        public PostController(Service service){
+            _Service = service;
         }
+        // GET api/Posts
+        [HttpGet]
+        public ActionResult<List<Post>> Get() =>
+        _Service.Get();
 
         // GET api/values/5
         [HttpGet("{id}")]
