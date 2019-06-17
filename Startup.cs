@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ThreePointSix.Models;
-using ThreePointSix.Services;
+using ThreePointSix.DBConnectors;
 
 namespace ThreePointSix {
     public class Startup {
@@ -29,7 +29,7 @@ namespace ThreePointSix {
             services.AddSingleton<IDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
-            services.AddSingleton<Service>();
+            services.AddSingleton<PostDBService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

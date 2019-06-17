@@ -3,14 +3,14 @@ using MongoDB.Driver;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ThreePointSix.Services {
-    public class Service {
+namespace ThreePointSix.DBConnectors {
+    public class PostDBService {
 
         // The database
         private readonly IMongoCollection<Post> _Posts;
 
         // Initialise the database connection object
-        public Service(IDatabaseSettings settings) {
+        public PostDBService(IDatabaseSettings settings) {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
