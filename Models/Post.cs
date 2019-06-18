@@ -9,10 +9,10 @@ namespace ThreePointSix.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
-        public BsonDateTime Date { get; set; } 
-
-        public BsonString UserId { get; set; }
+        public BsonArray Dates { get; set; }
 
         public BsonString Message { get; set; }
+
+        public BsonArray Authors { get; set; }
     }
 }
