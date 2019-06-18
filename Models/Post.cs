@@ -11,7 +11,6 @@ namespace ThreePointSix.Models {
         public string Id { get; set; }
 
         public List<BsonDateTime> Dates { get; set; }
-
         [BsonRepresentation(BsonType.String)]
         public string Message { get; set; }
 

@@ -6,7 +6,7 @@ using System.Linq;
 namespace ThreePointSix.DBConnectors {
     public class PostDBService {
 
-        // The database
+        // The database connection
         private readonly IMongoCollection<Post> _Posts;
 
         // Initialise the database connection object
@@ -17,6 +17,9 @@ namespace ThreePointSix.DBConnectors {
             _Posts = database.GetCollection<Post>(settings.CollectionName);
         }
 
+
+        // Various db connection wrappers, only create, update and parameterless get
+        // are used right now
         public List<Post> Get() =>
             _Posts.Find(Post => true).ToList();
 
