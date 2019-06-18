@@ -44,7 +44,7 @@ namespace ThreePointSix.Controllers {
             List<string> allPostMessages = allPosts.ConvertAll(post => post.Message.ToLower());
 
             // Check if message allready exists
-            int foundIndex = allPostMessages.BinarySearch(postIn.Message.ToLower());
+            int foundIndex = allPostMessages.IndexOf(postIn.Message.ToLower());
 
             // If not found then make new post object
             Post postOut;
