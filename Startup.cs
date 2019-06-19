@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using ThreePointSix.Models;
 using ThreePointSix.DBConnectors;
+using ThreePointSix.Models;
 
 namespace ThreePointSix {
     public class Startup {
@@ -38,7 +38,11 @@ namespace ThreePointSix {
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }
