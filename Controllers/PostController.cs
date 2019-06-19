@@ -4,10 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using ThreePointSix.DBConnectors;
 using ThreePointSix.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace ThreePointSix.Controllers {
+    
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyPolicy")]
     public class PostController : ControllerBase {
 
         // Interface and instance of the database connection service
